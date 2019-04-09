@@ -20,7 +20,7 @@ services:
       - "6502:6502"
     mem_limit: 2147483648
     environment:
-      - "CONFIG-PATH=pro"
+      - "CONFIG-PATH=qa"
   monitor:
     image: mice/monitor
     restart: always
@@ -34,7 +34,7 @@ services:
       - "6504:6504"
     mem_limit: 2147483648
     environment:
-      - "SPRING_PROFILES_INCLUDE=pro"
+      - "SPRING_PROFILES_INCLUDE=qa"
   gateway:
     image: mice/gateway
     ports:

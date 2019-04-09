@@ -1,17 +1,5 @@
-spring:
-  redis:
-    host: 127.0.0.1
-    port: 6379
-    password: ak89w3m483)#4db(root)
-    pool:
-      max-active: 8
-      max-wait: -1
-      max-idle: 8
-      min-idle: 0
-    timeout: 0
-
 server:
-  port: 6515
+  port: 6516
   max-http-header-size: 52428800
   tomcat:
     max-connections: 3000
@@ -24,4 +12,7 @@ eureka:
     metadata-map:
       user.name: ${security.user.name}
       user.password: ${security.user.password}
+
+elasticsearch-config:
+  host: http://106.75.126.48:9200
 

@@ -20,21 +20,7 @@ services:
       - "6502:6502"
     mem_limit: 2147483648
     environment:
-      - "CONFIG-PATH=pro"
-  monitor:
-    image: mice/monitor
-    restart: always
-    ports:
-      - "6533:6533"
-    mem_limit: 2147483648
-  zipkin:
-    image: mice/zipkin
-    restart: always
-    ports:
-      - "6504:6504"
-    mem_limit: 2147483648
-    environment:
-      - "SPRING_PROFILES_INCLUDE=pro"
+      - "CONFIG-PATH=pro-bk"
   gateway:
     image: mice/gateway
     ports:
@@ -88,14 +74,6 @@ services:
       - "6511:6511"
     volumes:
       - /data/log/mice-logs.log:/data/log/mice-logs.log
-    mem_limit: 3221225472
-  schedule-service:
-    image: mice/schedule-service
-    restart: always
-    ports:
-      - "6512:6512"
-    volumes:
-      - /data/log/mice-schedule.log:/data/log/mice-schedule.log
     mem_limit: 3221225472
   message-service:
     image: mice/message-service

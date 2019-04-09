@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration debug="true">
-    <!--<property name="LOG_HOME" value="/data/log/mice-task.log"/>-->
-    <property name="LOG_HOME" value="/Users/sunwell/Downloads/mice-task.log" />
+    <!--<property name="LOG_HOME" value="/data/log/mice-logs.log"/>-->
+    <property name="LOG_HOME" value="/Users/sunwell/Downloads/mice-logs.log" />
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <!-- encoders are assigned the type
              ch.qos.logback.classic.encoder.PatternLayoutEncoder by default -->

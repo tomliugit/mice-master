@@ -1,8 +1,8 @@
 spring:
   redis:
-    host: 127.0.0.1
+    host: 10.9.66.108
     port: 6379
-    password: ak89w3m483)#4db(root)
+    password: audBFYH764su
     pool:
       max-active: 8
       max-wait: -1
