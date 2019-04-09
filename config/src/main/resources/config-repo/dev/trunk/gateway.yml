@@ -1,0 +1,53 @@
+server:
+  port: 6505
+
+management:
+  security:
+    enabled: false
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 60000
+
+ribbon:
+  ReadTimeout: 60000
+  ConnectTimeout: 60000
+
+zuul:
+  ignoredServices: '*'
+  ignored-patterns: /**/support/**
+  routes:
+    analysis-service:
+      path: /analysis/**
+      sensitiveHeaders:
+    logs-service:
+      path: /logs/**
+      sensitiveHeaders:
+    media-service:
+      path: /media/**
+      sensitiveHeaders:
+    news-service:
+      path: /news/**
+      sensitiveHeaders:
+    setting-service:
+      path: /setting/**
+      sensitiveHeaders:
+    task-service:
+      path: /task/**
+      sensitiveHeaders:
+    schedule-service:
+      path: /schedule/**
+      sensitiveHeaders:
+    message-service:
+      path: /message/**
+      sensitiveHeaders:
+    file-service:
+      path: /file/**
+      sensitiveHeaders:
+  host:
+    connect-timeout-millis: 60000
+    socket-timeout-millis: 60000

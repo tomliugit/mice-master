@@ -1,0 +1,47 @@
+logging:
+  level:
+    org.springframework.cloud.netflix.zuul.filters.post.SendErrorFilter: error
+
+server:
+  port: 6533
+
+turbine:
+  stream:
+    port: 6534
+
+security:
+  user:
+    name:  admin
+    password: ${MONITOR_SERVER_PASSWORD:meihua6666666}
+
+
+eureka:
+  instance:
+    hostname: registry
+    prefer-ip-address: true
+    metadata-map:
+      user.name: ${security.user.name}
+      user.password: ${security.user.password}
+  client:
+    service-url:
+      defaultZone: http://${REGISTRY_SERVER_USER:admin}:${REGISTRY_SERVER_PASSWORD:meihua6666666}@${eureka.instance.hostname}:6501/eureka/
+
+spring:
+  rabbitmq:
+    host: rabbitmq
+  boot:
+    admin:
+      routes:
+        endpoints: env,metrics,trace,dump,jolokia,info,configprops,trace,logfile,refresh,flyway,liquibase,heapdump,loggers,auditevents,hystrix.stream
+      turbine:
+        clusters: default
+        location: http://monitor:${turbine.stream.port}
+      notify:
+        mail:
+          to: guxinwei008@yeah.net,sunwell.gu@meihua.info,876052618@qq.com
+          subject: MCIE微服务状态预警
+          from: sender2@meihua.info
+  mail:
+    host: mail.meihua.info
+    username: sender2@meihua.info
+    password: Bei*(8vb&a3#

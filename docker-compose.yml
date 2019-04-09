@@ -1,0 +1,45 @@
+version: '2'
+services:
+  rabbitmq:
+    image: rabbitmq:3-management
+    restart: always
+    ports:
+      - 5672:5672
+      - 15673:15672
+    mem_limit: 3221225472
+  registry:
+    image: mice/registry
+    restart: always
+    ports:
+      - "6501:6501"
+    mem_limit: 2147483648
+  config:
+    image: mice/config
+    restart: always
+    ports:
+      - "6502:6502"
+    mem_limit: 2147483648
+    environment:
+      - "CONFIG-PATH=pro"
+  gateway:
+    image: mice/gateway
+    ports:
+      - "6505:6505"
+    restart: always
+    mem_limit: 3221225472
+  redis-service:
+    image: mice/redis-service
+    restart: always
+    ports:
+      - "6510:6510"
+    mem_limit: 3221225472
+  file-service:
+    image: mice/file-service
+    ports:
+      - "6514:6514"
+    volumes:
+      - /data/static/upload/:/data/static/upload/
+      - /data/log/mice-file.log:/data/log/mice-file.log
+    restart: always
+    mem_limit: 3221225472
+

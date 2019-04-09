@@ -1,0 +1,41 @@
+server:
+  port: 6502
+
+security:
+  user:
+    name: admin
+    password: ${CONFIG_SERVER_PASSWORD:meihua6666666}
+
+eureka:
+  instance:
+    hostname: registry
+    prefer-ip-address: true
+    metadata-map:
+      user.name: ${security.user.name}
+      user.password: ${security.user.password}
+  client:
+    service-url:
+      defaultZone: http://${REGISTRY_SERVER_USER:admin}:${REGISTRY_SERVER_PASSWORD:meihua6666666}@${eureka.instance.hostname}:6501/eureka/
+
+spring:
+  profiles:
+    active: native
+  cloud:
+    config:
+      server:
+        native:
+          search-locations: classpath:/config-repo/${config-path}/trunk
+  rabbitmq:
+    host: rabbitmq
+
+# 本地
+#config-path: dev
+
+# 测试环境
+#config-path: qa
+
+# 正式环境
+#config-path: pro
+
+# 正式环境测试
+#config-path: dev-p

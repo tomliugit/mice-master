@@ -1,0 +1,27 @@
+spring:
+  redis:
+    host: 106.75.59.77
+    port: 6379
+    password: hyb541Gt#afZ
+    pool:
+      max-active: 8
+      max-wait: -1
+      max-idle: 8
+      min-idle: 0
+    timeout: 0
+
+server:
+  port: 6515
+  max-http-header-size: 52428800
+  tomcat:
+    max-connections: 3000
+    max-http-post-size: 52428800
+    max-threads: 1000
+
+
+eureka:
+  instance:
+    metadata-map:
+      user.name: ${security.user.name}
+      user.password: ${security.user.password}
+

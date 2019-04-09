@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: zipkin
+  rabbitmq:
+    host: rabbitmq
+#  profiles:
+#    include: dev
+#    include: qa
+#    include: pro
+
+security:
+  user:
+    name: admin
+    password: ${ZIPKIN_SERVER_PASSWORD:meihua6666666}
