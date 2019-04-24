@@ -49,7 +49,7 @@ public class GlobalConstants {
 
 
     public static class Mail {
-        public static final String HOST = "42.62.52.134";
+        public static final String HOST = "mail.meihua.info";
         public static final int PORT = 25;
         public static final String USERNAME = "sender2@meihua.info";
         public static final String PASSWORD = "Bei*(8vb&a3#";
